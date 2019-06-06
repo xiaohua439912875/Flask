@@ -1,0 +1,18 @@
+{% extends 'index/base.html' %}
+
+{% block base_content %}
+        {% block content %}
+        {% endblock content %}
+        <div class="rank_con fr">
+            {% block author_card %}
+            {% endblock author_card %}
+            <div class="rank_title">
+                <h3>点击排行</h3>
+            </div>
+            <ul class="rank_list">
+                {% for news in rank_news %}
+                    <li><span class="{{ loop.index | show_index_colorful }}">{{ loop.index }}</span><a href="/detail/{{ news.id}}">{{ news.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+{% endblock base_content %}
